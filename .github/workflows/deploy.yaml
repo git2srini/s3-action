@@ -37,6 +37,10 @@ jobs:
       - name: Pulumi Login (local backend)
         run: pulumi login --cloud-url file://~/.pulumi
 
+      - name: Select or Create Pulumi Stack
+        run: |
+          pulumi stack select dev || pulumi stack init dev  
+
       - name: Pulumi Preview
         run: pulumi preview
 
