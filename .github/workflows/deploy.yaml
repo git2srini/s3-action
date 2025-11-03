@@ -38,6 +38,8 @@ jobs:
         run: pulumi login --cloud-url file://~/.pulumi
 
       - name: Select or Create Pulumi Stack
+        env:
+          PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
         run: |
           pulumi stack select dev || pulumi stack init dev  
 
